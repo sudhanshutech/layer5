@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import { Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import { IoIosArrowDropleftCircle } from "@react-icons/all-files/io/IoIosArrowDropleftCircle";
 import { Row, Container } from "../../../reusecore/Layout";
 import PageHeader from "../../../reusecore/PageHeader";
@@ -44,7 +44,7 @@ const ProgramsSingle = ({ data, options, setActiveOption, activeOption }) => {
         <Container>
 
           <div className="single-post-block">
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXProvider>{body}</MDXProvider>
           </div>
         </Container>
       </div>

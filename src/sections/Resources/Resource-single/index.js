@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+import { useMDXComponents } from "@mdx-js/react";
 import { SRLWrapper } from "simple-react-lightbox";
 import { Container } from "../../../reusecore/Layout";
 import PageHeader from "../../../reusecore/PageHeader";
@@ -68,7 +69,9 @@ const ResourceSingle = ({ data }) => {
       <div className="single-resource-wrapper">
         <Container>
           <SRLWrapper>
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXProvider components={useMDXComponents()}>
+              {body}
+            </MDXProvider>
           </SRLWrapper>
 
           <CTA_Bottom

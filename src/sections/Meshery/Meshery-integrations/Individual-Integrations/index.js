@@ -1,7 +1,7 @@
 import React from "react";
 import { FaArrowRight } from "@react-icons/all-files/fa/FaArrowRight";
 import Button from "../../../../reusecore/Button";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import CTA_Book from "./cta-book";
 import PerformanceCTA from "./cta-performance";
 import Image from "../../../../components/image";
@@ -79,7 +79,7 @@ const IndividualIntegrations = ({ data }) => {
         </div>
         <div className="content">
           <h2>Overview</h2>
-          <MDXRenderer>{body}</MDXRenderer>
+          <MDXProvider>{body}</MDXProvider>
           <section className="external-btns">
             <Button
               $primary

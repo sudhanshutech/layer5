@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import slugify from "../../../utils/slugify";
 import { Container } from "../../../reusecore/Layout";
 import PageHeader from "../../../reusecore/PageHeader";
@@ -82,7 +82,7 @@ const EventSingle = ({ data }) => {
                 }
               </div>
 
-              <MDXRenderer>{body}</MDXRenderer>
+              <MDXProvider>{body}</MDXProvider>
               <ul className="speakers">
                 {
                   frontmatter.speakers && frontmatter.speakers ? "Speakers:" : ""

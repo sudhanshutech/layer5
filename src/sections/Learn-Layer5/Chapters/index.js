@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+import { useMDXComponents } from "@mdx-js/react";
 import { SRLWrapper } from "simple-react-lightbox";
 import { Container, Row, Col } from "../../../reusecore/Layout";
 import TOC from "../../../components/Learn-Components/TOC-Chapters";
@@ -109,7 +110,9 @@ const Chapters = ({ chapterData, courseData, location, serviceMeshesList, TOCDat
             <div className="chapter-data">
               <h1 className="chapter-heading">{frontmatter.chapterTitle}</h1>
               <SRLWrapper>
-                <MDXRenderer>{body}</MDXRenderer>
+                <MDXProvider components={useMDXComponents()}>
+                  {body}
+                </MDXProvider>
               </SRLWrapper>
             </div>
             <Pagination TOCData={TOCData} chapterData={chapterData} location={location} showQuizModal={() => setShowQuizModal(true)} />

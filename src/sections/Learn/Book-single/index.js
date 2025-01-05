@@ -1,5 +1,6 @@
 import React from "react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+import { useMDXComponents } from "@mdx-js/react";
 
 import { Container } from "../../../reusecore/Layout";
 import PageHeader from "../../../reusecore/PageHeader";
@@ -26,7 +27,9 @@ const BookSingle = ({ data }) => {
       <div className="single-post-wrapper">
         <Container>
           <div className="single-post-block">
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXProvider components={useMDXComponents()}>
+              {body}
+            </MDXProvider>
           </div>
         </Container>
       </div>

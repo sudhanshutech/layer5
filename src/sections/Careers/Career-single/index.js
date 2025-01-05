@@ -1,5 +1,6 @@
 import React from "react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+import { useMDXComponents } from "@mdx-js/react";
 import { Container, Row, Col } from "../../../reusecore/Layout";
 import PageHeader from "../../../reusecore/PageHeader";
 import CareerPageWrapper from "./CareerSingle.style";
@@ -47,7 +48,9 @@ const CareerSingle = ({ data }) => {
             </Col>
           </Row>
           <div>
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXProvider components={useMDXComponents()}>
+              {body}
+            </MDXProvider>
           </div>
         </Container>
       </div>

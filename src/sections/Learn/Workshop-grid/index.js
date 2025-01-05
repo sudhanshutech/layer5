@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import { Container, Row, Col } from "../../../reusecore/Layout";
 import WorkshopCard from "../../../components/Workshop-Card";
 import PageHeader from "../../../reusecore/PageHeader";
@@ -91,7 +91,7 @@ const WorkshopsPage = () => {
                     <WorkshopCard frontmatter={frontmatter} content={content} ID={ID} id={id} />
                     <div className={content && ID === id ? "active" : "text-contents"}>
                       <div className="content">
-                        <MDXRenderer>{body}</MDXRenderer>
+                        <MDXProvider>{body}</MDXProvider>
                       </div>
                     </div>
                     <div className={content && ID === id ? "btn-and-status-open" : "btn-and-status"}>

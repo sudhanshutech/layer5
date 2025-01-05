@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+import { useMDXComponents } from "@mdx-js/react";
 import { SRLWrapper } from "simple-react-lightbox";
 import slugify from "../../../utils/slugify";
 import { Container } from "../../../reusecore/Layout";
@@ -121,7 +122,9 @@ const BlogSingle = ({ data }) => {
           />
           <div className="single-post-wrapper">
             <SRLWrapper>
-              <MDXRenderer>{body}</MDXRenderer>
+              <MDXProvider components={useMDXComponents()}>
+                {body}
+              </MDXProvider>
             </SRLWrapper>
             <BlogPostSignOff
               author={{ name: frontmatter.author }}

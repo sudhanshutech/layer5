@@ -1,5 +1,5 @@
 import React from "react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import LabSinglePageWrapper from "./LabSinglePageWrapper.style";
 import { IoIosArrowDropleftCircle } from "@react-icons/all-files/io/IoIosArrowDropleftCircle";
 import { Link } from "gatsby";
@@ -32,7 +32,9 @@ const LabSinglePage = ({ frontmatter, body }) => {
         title={frontmatter.title}
       />
       <div className="cardContent">
-        <MDXRenderer>{body}</MDXRenderer>
+        <MDXProvider>
+          {body}
+        </MDXProvider>
       </div>
       <div className="join-community">
         <div className="join-community_text-and_button">

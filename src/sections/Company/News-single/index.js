@@ -1,5 +1,6 @@
 import React from "react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+import { useMDXComponents } from "@mdx-js/react";
 import { SRLWrapper } from "simple-react-lightbox";
 import { graphql, useStaticQuery } from "gatsby";
 import { Container, Row, Col } from "../../../reusecore/Layout";
@@ -66,7 +67,9 @@ const NewsSingle = ({ data }) => {
             <Row>
               <Col $lg={9} $md={8} $xs={12}>
                 <SRLWrapper>
-                  <MDXRenderer>{body}</MDXRenderer>
+                  <MDXProvider components={useMDXComponents()}>
+                    {body}
+                  </MDXProvider>
                 </SRLWrapper>
               </Col>
               <Col $lg={3} $md={4} $xs={12}>

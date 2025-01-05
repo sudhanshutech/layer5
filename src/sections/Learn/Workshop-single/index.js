@@ -1,5 +1,5 @@
 import React from "react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
 import WorkshopSinglePageWrapper from "./WorkshopSinglePageWrapper.style";
 import { IoIosArrowDropleftCircle } from "@react-icons/all-files/io/IoIosArrowDropleftCircle";
 import { Link } from "gatsby";
@@ -30,7 +30,7 @@ const WorkshopSinglePage = ({ frontmatter, body }) => {
       />
       <Container>
         <div className="cardContent">
-          <MDXRenderer>{body}</MDXRenderer>
+          <MDXProvider>{body}</MDXProvider>
         </div>
         <div className="btn-and-status">
           <div className="social-icons">

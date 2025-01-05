@@ -58,6 +58,8 @@ module.exports = {
             priority: 0.7,
           };
         },
+        output: "/sitemap.xml",
+        createLinkInHead: true,
       },
     },
     {
@@ -241,7 +243,7 @@ module.exports = {
           },
           {
             serialize: ({ query: { site, allPosts } }) => {
-              return allPosts.nodes.map((node) => {
+              return allPosts.nodes.map(node => {
                 return Object.assign({}, node.frontmatter, {
                   title: node.frontmatter.title,
                   author: node.frontmatter.author,
@@ -250,9 +252,7 @@ module.exports = {
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
                   enclosure: node.frontmatter.thumbnail && {
-                    url:
-                      site.siteMetadata.siteUrl +
-                      node.frontmatter.thumbnail.publicURL,
+                    url: site.siteMetadata.siteUrl + node.frontmatter.thumbnail.publicURL,
                   },
                   custom_elements: [{ "content:encoded": node.html }],
                 });
@@ -395,6 +395,10 @@ module.exports = {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [".mdx", ".md"],
+        mdxOptions: {
+          remarkPlugins: [],
+          rehypePlugins: [],
+        },
       },
     },
     {
@@ -546,7 +550,7 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://layer5.io",
-        sitemap: "https://layer5.io/sitemap/sitemap-index.xml",
+        sitemap: "https://layer5.io/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       }
     },
